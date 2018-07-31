@@ -75,7 +75,7 @@
             "metadata": {
                 "description": "The location of resources that the script is dependent on such as linked templates and DSC modules"
             },
-            "defaultValue": "https://raw.githubusercontent.com/NikCharlebois/AzureGallery/SharePoint2013Trial/"
+            "defaultValue": "https://github.com/NikCharlebois/AzureGallery/raw/master/SharePoint2013Trial/"
         }
     },
     "variables": {
