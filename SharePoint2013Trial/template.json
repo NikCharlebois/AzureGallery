@@ -4,78 +4,78 @@
     "parameters": {
         "location": {
             "type": "string",
-            "value": "eastus"
+            "defaultValue": "eastus"
         },
         "virtualMachineName": {
             "type": "string",
-            "value": "NikSP2013-W2k12"
+            "defaultValue": "NikSP2013-W2k12"
         },
         "virtualMachineSize": {
             "type": "string",
-            "value": "Standard_D4s_v3"
+            "defaultValue": "Standard_D4s_v3"
         },
         "adminUsername": {
             "type": "string",
-            "value": "lcladmin"
+            "defaultValue": "lcladmin"
         },
         "virtualNetworkName": {
             "type": "string",
-            "value": "Nik-SP2013-Trial-vnet"
+            "defaultValue": "Nik-SP2013-Trial-vnet"
         },
         "networkInterfaceName": {
             "type": "string",
-            "value": "niksp2013-w2k12900"
+            "defaultValue": "niksp2013-w2k12900"
         },
         "networkSecurityGroupName": {
             "type": "string",
-            "value": "NikSP2013-W2k12-nsg"
+            "defaultValue": "NikSP2013-W2k12-nsg"
         },
         "adminPassword": {
             "type": "securestring",
-            "value": "Pass@word!123"
+            "defaultValue": "Pass@word!123"
         },
         "diagnosticsStorageAccountName": {
             "type": "string",
-            "value": "niksp2013trialdiag734"
+            "defaultValue": "niksp2013trialdiag734"
         },
         "diagnosticsStorageAccountId": {
             "type": "string",
-            "value": "Microsoft.Storage/storageAccounts/niksp2013trialdiag734"
+            "defaultValue": "Microsoft.Storage/storageAccounts/niksp2013trialdiag734"
         },
         "diagnosticsStorageAccountType": {
             "type": "string",
-            "value": "Standard_LRS"
+            "defaultValue": "Standard_LRS"
         },
         "addressPrefix": {
             "type": "string",
-            "value": "10.1.2.0/24"
+            "defaultValue": "10.1.2.0/24"
         },
         "subnetName": {
             "type": "string",
-            "value": "default"
+            "defaultValue": "default"
         },
         "subnetPrefix": {
             "type": "string",
-            "value": "10.1.2.0/24"
+            "defaultValue": "10.1.2.0/24"
         },
         "publicIpAddressName": {
             "type": "string",
-            "value": "NikSP2013-W2k12-ip"
+            "defaultValue": "NikSP2013-W2k12-ip"
         },
         "publicIpAddressType": {
             "type": "string",
-            "value": "Dynamic"
+            "defaultValue": "Dynamic"
         },
         "publicIpAddressSku": {
             "type": "string",
-            "value": "Basic"
+            "defaultValue": "Basic"
         },
         "assetLocation": {
             "type": "string",
             "metadata": {
                 "description": "The location of resources that the script is dependent on such as linked templates and DSC modules"
             },
-            "value": "https://raw.githubusercontent.com/NikCharlebois/AzureGallery/SharePoint2013Trial/"
+            "defaultValue": "https://raw.githubusercontent.com/NikCharlebois/AzureGallery/SharePoint2013Trial/"
         }
     },
     "variables": {
