@@ -133,11 +133,12 @@
                         "value": "eastus"
                     },
                     "modulesUrl": {
-                        "value": "[concat(parameters(AssetLocation), 'SP2013Trial.zip']
+                        "value": "[concat(parameters('AssetLocation'), 'SP2013Trial.zip')]"
                     },
                     "configurationFunction": {
                         "value": "SP2013Trial.ps1\\SharePointServer2013"
                     },
+                    "Sdf":{"value":""},
                     "wmfVersion": {
                         "value": "latest"
                     },
