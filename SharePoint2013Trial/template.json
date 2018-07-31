@@ -156,7 +156,6 @@
                     "configurationFunction": {
                         "value": "SP2013Trial.ps1\\SharePointServer2013"
                     },
-                    "Sdf":{"value":""},
                     "wmfVersion": {
                         "value": "latest"
                     },
