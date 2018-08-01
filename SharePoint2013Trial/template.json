@@ -136,7 +136,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('spVMName'),'/ConfigureSPServer')]",
+            "name": "[concat(parameters('virtualMachineName'),'/ConfigureSPServer')]",
             "apiVersion": "2015-06-15",
             "dependsOn": [
             ],
@@ -158,10 +158,7 @@
                 },
                 "protectedSettings": {
                     "Items": {
-                        "AdminPassword": "[parameters('adminPassword')]",
-                        "SharePointSetupUserAccountPassword": "[parameters('sharePointSetupUserAccountPassword')]",
-                        "SharePointFarmAccountPassword": "[parameters('sharePointFarmAccountPassword')]",
-                        "SharePointFarmPassphrasePassword": "[parameters('sharePointFarmPassphrasePassword')]"
+                        "AdminPassword": "[parameters('adminPassword')]"
                     }
                 }
             }
