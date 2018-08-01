@@ -135,35 +135,6 @@
             }
         },
         {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('virtualMachineName'),'/ConfigureSPServer')]",
-            "apiVersion": "2015-06-15",
-            "dependsOn": [
-            ],
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.8",
-                "autoUpgradeMinorVersion": "true",
-                "settings": {
-                    "ModulesUrl": "[concat(parameters('AssetLocation'), 'SP2013Trial.zip')]",
-                    "ConfigurationFunction": "SP2013Trial.ps1\\SharePointServer2013",
-                    "Properties": {
-                        "AdminCreds": {
-                            "UserName": "[parameters('adminUserName')]",
-                            "Password": "PrivateSettingsRef:AdminPassword"
-                        }
-                    }
-                },
-                "protectedSettings": {
-                    "Items": {
-                        "AdminPassword": "[parameters('adminPassword')]"
-                    }
-                }
-            }
-        },
-        {
             "name": "[parameters('diagnosticsStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2015-06-15",
@@ -258,6 +229,35 @@
             },
             "sku": {
                 "name": "[parameters('publicIpAddressSku')]"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('virtualMachineName'),'/ConfigureSPServer')]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [
+            ],
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.8",
+                "autoUpgradeMinorVersion": "true",
+                "settings": {
+                    "ModulesUrl": "[concat(parameters('AssetLocation'), 'SP2013Trial.zip')]",
+                    "ConfigurationFunction": "SP2013Trial.ps1\\SharePointServer2013",
+                    "Properties": {
+                        "AdminCreds": {
+                            "UserName": "[parameters('adminUserName')]",
+                            "Password": "PrivateSettingsRef:AdminPassword"
+                        }
+                    }
+                },
+                "protectedSettings": {
+                    "Items": {
+                        "AdminPassword": "[parameters('adminPassword')]"
+                    }
+                }
             }
         }
     ],
