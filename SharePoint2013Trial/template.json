@@ -258,7 +258,10 @@
                         "AdminPassword": "[parameters('adminPassword')]"
                     }
                 }
-            }
+            },
+            "dependsOn": [
+                "[parameters('virtualMachineName')]"
+            ]
         }
     ],
     "outputs": {
