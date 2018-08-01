@@ -135,41 +135,36 @@
             }
         },
         {
-            "name": "Microsoft.DSC-20180731132539",
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('spVMName'),'/ConfigureSPServer')]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [
+            ],
+            "location": "[resourceGroup().location]",
             "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "https://gallery.azure.com/artifact/20161101/Microsoft.DSC-arm.2.0.8/Artifacts/MainTemplate.json"
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.8",
+                "autoUpgradeMinorVersion": "true",
+                "settings": {
+                    "ModulesUrl": "[concat(parameters('AssetLocation'), 'SP2013Trial.zip')]",
+                    "ConfigurationFunction": "SP2013Trial.ps1\\SharePointServer2013",
+                    "Properties": {
+                        "AdminCreds": {
+                            "UserName": "[parameters('adminUserName')]",
+                            "Password": "PrivateSettingsRef:AdminPassword"
+                        }
+                    }
                 },
-                "parameters": {
-                    "vmName": {
-                        "value": "NikSP2013-W2k12"
-                    },
-                    "location": {
-                        "value": "eastus"
-                    },
-                    "modulesUrl": {
-                        "value": "[concat(parameters('AssetLocation'), 'SP2013Trial.zip')]"
-                    },
-                    "configurationFunction": {
-                        "value": "SP2013Trial.ps1\\SharePointServer2013"
-                    },
-                    "wmfVersion": {
-                        "value": "latest"
-                    },
-                    "privacy": {
-                        "value": "Enable"
-                    },
-                    "version": {
-                        "value": "2.76"
+                "protectedSettings": {
+                    "Items": {
+                        "AdminPassword": "[parameters('adminPassword')]",
+                        "SharePointSetupUserAccountPassword": "[parameters('sharePointSetupUserAccountPassword')]",
+                        "SharePointFarmAccountPassword": "[parameters('sharePointFarmAccountPassword')]",
+                        "SharePointFarmPassphrasePassword": "[parameters('sharePointFarmPassphrasePassword')]"
                     }
                 }
-            },
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-            ]
+            }
         },
         {
             "name": "[parameters('diagnosticsStorageAccountName')]",
