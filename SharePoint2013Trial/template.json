@@ -20,11 +20,11 @@
         },
         "networkInterfaceName": {
             "type": "string",
-            "defaultValue": "niksp2013-w2k12900"
+            "defaultValue": "sp2013-w2k12900"
         },
         "networkSecurityGroupName": {
             "type": "string",
-            "defaultValue": "NikSP2013-W2k12-nsg"
+            "defaultValue": "SP2013-W2k12-nsg"
         },
         "adminPassword": {
             "type": "securestring",
@@ -32,11 +32,11 @@
         },
         "diagnosticsStorageAccountName": {
             "type": "string",
-            "defaultValue": "niksp2013trialdiag734"
+            "defaultValue": "sp2013trialdiag734"
         },
         "diagnosticsStorageAccountId": {
             "type": "string",
-            "defaultValue": "Microsoft.Storage/storageAccounts/niksp2013trialdiag734"
+            "defaultValue": "Microsoft.Storage/storageAccounts/sp2013diag734"
         },
         "diagnosticsStorageAccountType": {
             "type": "string",
