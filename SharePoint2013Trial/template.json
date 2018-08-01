@@ -18,6 +18,10 @@
             "type": "string",
             "defaultValue": "lcladmin"
         },
+        "virtualNetworkName":{
+            "type": "string",
+            "defaultValue": "vnettrial"
+        },
         "networkInterfaceName": {
             "type": "string",
             "defaultValue": "sp2013-w2k12900"
