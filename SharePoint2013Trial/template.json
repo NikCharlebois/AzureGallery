@@ -86,7 +86,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'), resourceGroup().name)]",
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName', resourceGroup().name))]"
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName'), resourceGroup().name))]"
             ],
             "properties": {
                 "osProfile": {
