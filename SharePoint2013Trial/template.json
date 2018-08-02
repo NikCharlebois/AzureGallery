@@ -32,7 +32,7 @@
         },
         "diagnosticsStorageAccountName": {
             "type": "string",
-            "defaultValue": "sp2013trialdiag734"
+            "defaultValue": "sp2013diag734"
         },
         "diagnosticsStorageAccountId": {
             "type": "string",
@@ -125,7 +125,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https://', parameters('diagnosticsStorageAccountName'), '.blob.core.windows.net/')]"
+                        "storageUri": "[concat('https://', concat(parameters('diagnosticsStorageAccountName'), toLower(resourceGroup().name)), '.blob.core.windows.net/')]"
                     }
                 }
             }
