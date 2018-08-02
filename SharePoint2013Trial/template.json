@@ -220,7 +220,7 @@
             }
         },
         {
-            "name": "[concat(parameters('publicIpAddressName'), toLower(resourceGroup().name)))]",
+            "name": "[concat(parameters('publicIpAddressName'), toLower(resourceGroup().name))]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2017-08-01",
             "location": "[parameters('location')]",
