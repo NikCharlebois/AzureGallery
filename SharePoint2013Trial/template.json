@@ -215,7 +215,7 @@
                 ],
                 "enableAcceleratedNetworking": true,
                 "networkSecurityGroup": {
-                    "id": "[resourceId(toLower(resourceGroup().name), 'Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'), toLower(resourceGroup().name))]"
+                    "id": "[resourceId(toLower(resourceGroup().name), 'Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'), toLower(resourceGroup().name)))]"
                 }
             }
         },
