@@ -79,7 +79,7 @@
         }
     },
     "variables": {
-        "vnetId": "[resourceId(toLower(resourceGroup().name),'Microsoft.Network/virtualNetworks', concat('vnet', toLower(resourceGroup().name)))]",
+        "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', concat('vnet', toLower(resourceGroup().name)))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'), toLower(resourceGroup().name))]"
     },
     "resources": [
@@ -195,7 +195,7 @@
             "apiVersion": "2018-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), toLower(resourceGroup().name))]",
+                "[concat('Microsoft.Network/virtualNetworks/', 'vnet', toLower(resourceGroup().name))]",
                 "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'), toLower(resourceGroup().name))]"
             ],
             "properties": {
@@ -208,14 +208,14 @@
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIpAddress": {
-                                "id": "[resourceId(toLower(resourceGroup().name),'Microsoft.Network/publicIpAddresses', concat(parameters('publicIpAddressName'), toLower(resourceGroup().name)))]"
+                                "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', concat(parameters('publicIpAddressName'), toLower(resourceGroup().name)))]"
                             }
                         }
                     }
                 ],
                 "enableAcceleratedNetworking": true,
                 "networkSecurityGroup": {
-                    "id": "[resourceId(toLower(resourceGroup().name), 'Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'), toLower(resourceGroup().name)))]"
+                    "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'), toLower(resourceGroup().name)))]"
                 }
             }
         },
