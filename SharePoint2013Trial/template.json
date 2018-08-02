@@ -79,7 +79,7 @@
         }
     },
     "variables": {
-        "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', concat('vnet', resourceGroup().name))]",
+        "vnetId": "[resourceId(toLower(resourceGroup().name),'Microsoft.Network/virtualNetworks', concat('vnet', toLower(resourceGroup().name)))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
     },
     "resources": [
@@ -89,8 +89,8 @@
             "apiVersion": "2018-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'), resourceGroup().name)]",
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName'), resourceGroup().name)]"
+                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'), toLower(resourceGroup().name))]",
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName'), toLower(resourceGroup().name))]"
             ],
             "properties": {
                 "osProfile": {
@@ -122,7 +122,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('networkInterfaceName'),resourceGroup().name))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('networkInterfaceName'),toLower(resourceGroup().name)))]"
                         }
                     ]
                 },
@@ -135,7 +135,7 @@
             }
         },
         {
-            "name": "[concat(parameters('diagnosticsStorageAccountName'),resourceGroup().name)]",
+            "name": "[concat(parameters('diagnosticsStorageAccountName'),toLower(resourceGroup().name))]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2015-06-15",
             "location": "[parameters('location')]",
@@ -144,7 +144,7 @@
             }
         },
         {
-            "name": "[concat(parameters('networkSecurityGroupName'),resourceGroup().name)]",
+            "name": "[concat(parameters('networkSecurityGroupName'),toLower(resourceGroup().name))]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2018-01-01",
             "location": "[parameters('location')]",
@@ -169,7 +169,7 @@
             }
         },
         {
-            "name": "[concat(parameters('virtualNetworkName'), resourceGroup().name)]",
+            "name": "[concat(parameters('virtualNetworkName'), toLower(resourceGroup().name))]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-04-01",
             "location": "[parameters('location')]",
@@ -181,7 +181,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "[concat(parameters('subnetName'), resourceGroup().name)]",
+                        "name": "[concat(parameters('subnetName'), toLower(resourceGroup().name))]",
                         "properties": {
                             "addressPrefix": "[parameters('subnetPrefix')]"
                         }
@@ -190,13 +190,13 @@
             }
         },
         {
-            "name": "[concat(parameters('networkInterfaceName'), resourceGroup().name)]",
+            "name": "[concat(parameters('networkInterfaceName'), toLower(resourceGroup().name))]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), resourceGroup().name)]",
-                "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'), resourceGroup().name)]"
+                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), toLower(resourceGroup().name))]",
+                "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'), toLower(resourceGroup().name))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -208,19 +208,19 @@
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIpAddress": {
-                                "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', concat(parameters('publicIpAddressName'), resourceGroup().name)]"
+                                "id": "[resourceId(toLower(resourceGroup().name),'Microsoft.Network/publicIpAddresses', concat(parameters('publicIpAddressName'), toLower(resourceGroup().name))]"
                             }
                         }
                     }
                 ],
                 "enableAcceleratedNetworking": true,
                 "networkSecurityGroup": {
-                    "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'), resourceGroup().name)]"
+                    "id": "[resourceId(toLower(resourceGroup().name), 'Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'), toLower(resourceGroup().name))]"
                 }
             }
         },
         {
-            "name": "[concat(parameters('publicIpAddressName'), resourceGroup().name)]",
+            "name": "[concat(parameters('publicIpAddressName'), toLower(resourceGroup().name))]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2017-08-01",
             "location": "[parameters('location')]",
