@@ -181,7 +181,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "[concat[parameters('subnetName'), resourceGroup().name]",
+                        "name": "[concat(parameters('subnetName'), resourceGroup().name)]",
                         "properties": {
                             "addressPrefix": "[parameters('subnetPrefix')]"
                         }
