@@ -241,18 +241,7 @@
                 "autoUpgradeMinorVersion": "true",
                 "settings": {
                     "ModulesUrl": "[concat(parameters('AssetLocation'), 'SP2019Trial.zip')]",
-                    "ConfigurationFunction": "SP2019Trial.ps1\\SharePointServer2019",
-                    "Properties": {
-                        "AdminCreds": {
-                            "UserName": "[parameters('adminUserName')]",
-                            "Password": "PrivateSettingsRef:AdminPassword"
-                        }
-                    }
-                },
-                "protectedSettings": {
-                    "Items": {
-                        "AdminPassword": "[parameters('adminPassword')]"
-                    }
+                    "ConfigurationFunction": "SP2019Trial.ps1\\SharePointServer2019"
                 }
             },
             "dependsOn" : [
